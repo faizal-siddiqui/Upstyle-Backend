@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const userFeedbackSchema = mongoose.Schema({
-  feedBack: String,
+  feedback: String,
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
