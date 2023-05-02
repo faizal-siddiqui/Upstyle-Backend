@@ -28,12 +28,17 @@ app.get("/", (req, res) => {
 });
 
 // * Listen
-app.listen(process.env.PORT, async () => {
+(async () => {
   try {
     await connection;
+
     console.log("DataBase Connected");
+
+    //* connecting server after database
+    app.listen(process.env.PORT, () => {
+      console.log("Server is running");
+    });
   } catch (err) {
-    console.log("DataBase Error");
+    console.log("DataBase Error", err.message);
   }
-  console.log("Server is running");
-});
+})();

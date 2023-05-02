@@ -10,6 +10,14 @@ const checkHashPassword = async (req, res, next) => {
       bcrypt.compare(password, user.password, (err, result) => {
         if (result) {
           req.body.userId = user._id;
+
+          //* for checking user is admin or not
+          if (user.is_admin) {
+            req.body.is_admin = true;
+          } else {
+            req.body.is_admin = false;
+          }
+
           next();
         } else {
           res.send({ msg: "Password Incorrect ❗" });

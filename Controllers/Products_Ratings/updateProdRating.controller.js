@@ -3,6 +3,8 @@ const { ProductsRatingModel } = require("../../Models/productsRating.model");
 const updateProdRating = async (req, res) => {
   const ID = req.params.id;
   const body = req.body;
+  delete req.body.userId;
+
   try {
     await ProductsRatingModel.findByIdAndUpdate({ _id: ID }, body);
     res.send({ msg: "Rating Updated" });

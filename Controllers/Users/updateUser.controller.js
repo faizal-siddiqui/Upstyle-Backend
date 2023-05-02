@@ -5,7 +5,7 @@ const updateUser = async (req, res) => {
   //* Deleting the userId so that it will not get added in the userSchema
   delete body.userId;
   const ID = req.params.id;
-  console.log(body);
+  // console.log(body);
   try {
     await UserModel.findByIdAndUpdate({ _id: ID }, body);
     res.send({ msg: "User Updated" });
