@@ -24,7 +24,7 @@ app.use("/product/ratings", productsRatingRouter);
 app.use("/user/feedback", userFeedbackRouter);
 
 app.get("/", (req, res) => {
-  res.send("HomePage");
+  res.send({ msg: "HomePage" });
 });
 
 // * Listen
